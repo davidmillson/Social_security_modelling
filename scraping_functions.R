@@ -54,3 +54,9 @@ get_time_series = function(benefit, analysis, row, column, subset_on, subset = N
     #gather(date, caseload, -gender, -rate) %>%
     return()
 }
+
+scrape_page_ = function(url){
+  doc = htmlParse(url)
+  tableNode = getNodeSet(doc, "/html/body/div[2]/table/tr/td/div/table")
+  return(readHTMLTable(tableNodes[[1]]))
+}
